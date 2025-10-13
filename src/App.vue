@@ -3,7 +3,7 @@
     <div>
       <input type="text" 
         v-model="search" 
-        placeholder="Search by name, email, website, or company…"
+        placeholder="名前・メール・サイト・会社名で検索…"
         @keyup.enter="submitSearch(search)"
       />
       <button @click="submitSearch(search)">Search</button>
