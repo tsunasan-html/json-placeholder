@@ -3,7 +3,7 @@
     <div>
       <input type="text" 
         v-model="search" 
-        placeholder="名前・メール・サイト・会社名で検索…"
+        placeholder="名前で検索…"
         @keyup.enter="submitSearch(search)"
       />
       <button @click="submitSearch(search)">Search</button>
@@ -58,9 +58,7 @@ export default {
         this.results = this.lists
       } catch (error) {
         console.log(error);
-        
       }
-
     },
     submitSearch(search) {
       const searchWord = search.trim()
@@ -70,10 +68,7 @@ export default {
       }
       this.results = this.lists.filter(list => {
         return (
-          list.name.toLowerCase().includes(searchWord.toLowerCase()) ||
-          list.email.toLowerCase().includes(searchWord.toLowerCase()) ||
-          list.website.toLowerCase().includes(searchWord.toLowerCase()) ||
-          list.company?.name.toLowerCase().includes(searchWord.toLowerCase())
+          list.name.toLowerCase().includes(searchWord.toLowerCase())
         )
       })
     },
